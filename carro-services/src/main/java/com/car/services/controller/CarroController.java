@@ -46,9 +46,9 @@ public class CarroController {
         return ResponseEntity.ok(carroGuardado);
     }
 
-    @GetMapping("usuario/{usuarioId}")
-    public ResponseEntity<List<Carro>> getCarrosByIdUser(@PathVariable long idUser){
-        List<Carro> carros =  carroService.getCarrosByUsuarioId(idUser);
+    @GetMapping("/usuario/{usuarioId}")
+    public ResponseEntity<List<Carro>> getCarrosByIdUser(@PathVariable long usuarioId){
+        List<Carro> carros =  carroService.getCarrosByUsuarioId(usuarioId);
         if(carros.isEmpty()){
             return ResponseEntity.noContent().build();
         }
