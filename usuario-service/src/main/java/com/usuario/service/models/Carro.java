@@ -7,7 +7,6 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Carro {
-    private Long id;
     private String marca;
     private String modelo;
     private Long usuarioId;

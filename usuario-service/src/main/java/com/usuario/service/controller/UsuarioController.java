@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.http.ResponseEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
+import java.util.Map;
+
 import com.usuario.service.services.UsuarioService;
 import com.usuario.service.entity.Usuario;
 import com.usuario.service.models.Carro;
@@ -41,7 +43,6 @@ public class UsuarioController {
 
     @PostMapping("/save")
     public ResponseEntity<Usuario> saveUsuario(@RequestBody Usuario usuario){
-        System.out.println("[DEBUG] Endpoint /usuario/save alcanzado. Usuario recibido: " + usuario);
         Usuario usuarioGuardado = usuarioService.saveUsuario(usuario);
         return ResponseEntity.ok(usuarioGuardado);
     }
@@ -61,5 +62,41 @@ public class UsuarioController {
             return ResponseEntity.noContent().build();
         }
         return ResponseEntity.ok(motos);
+    }
+    @PostMapping("/saveCarro/{idUsuario}")
+    public ResponseEntity<Carro> saveCarro(@PathVariable long idUsuario, @RequestBody Carro carro){
+        Carro nuevoCarro = usuarioService.saveCarro(idUsuario, carro);
+        return ResponseEntity.ok(nuevoCarro);
+    }
+    @PostMapping("/saveMoto/{idUsuario}")
+    public ResponseEntity<Moto> saveMoto(@PathVariable long idUsuario, @RequestBody Moto moto){
+        Moto nuevaMoto = usuarioService.saveMoto(idUsuario, moto);
+        return ResponseEntity.ok(nuevaMoto);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @GetMapping("getUserAndVehiculos/{usuarioId}")
+    public ResponseEntity<Map<String, Object>> getUserAndVehiculos(@PathVariable long usuarioId){
+        Map<String, Object> datos = usuarioService.getUserAndVehiculos(usuarioId);
+        return ResponseEntity.ok(datos);
     }
 }
