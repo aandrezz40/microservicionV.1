@@ -1,0 +1,12 @@
+server:
+  port: 8081
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          default-label: config-server
+          uri: https://github.com/aandrezz40/microservicionV.1.git
+          search-paths: config-data
+  aplication:
+    name: config-service
