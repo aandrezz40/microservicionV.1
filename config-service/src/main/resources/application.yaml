@@ -4,10 +4,11 @@ server:
 spring:
   application:
     name: config-service
-  profiles:
-    active: native
+
   cloud:
     config:
       server:
-        native:
-          search-locations: file:../config-data
+        git:
+          uri: https://github.com/aandrezz40/microservicionV.1
+          default-label: config-server     # o la rama real de tu repo
+          search-paths: config-data
