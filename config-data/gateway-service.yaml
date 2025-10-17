@@ -1,15 +1,10 @@
 server:
   port: 9090
-eureka:
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-      defaultZone: http://localhost:8761/eureka
-    instance:
-      hostname: localhost
 
 spring:
+  application:
+    name: gateway-service
+
   cloud:
     gateway:
       discovery:
@@ -20,18 +15,30 @@ spring:
         - id: usuario-service
           uri: lb://usuario-service
           predicates:
-            - Path=/api/usuario/** 
+            - Path=/api/usuario**
           filters:
             - StripPrefix=1
+
         - id: carro-service
           uri: lb://carro-service
           predicates:
-            - Path=/carro-service/** 
+            - Path=/api/carro/**
           filters:
             - StripPrefix=1
+
         - id: moto-service
           uri: lb://moto-service
           predicates:
-            - Path=/moto-service/**
+            - Path=/api/moto/**
           filters:
             - StripPrefix=1
+
+eureka:
+  instance:
+    hostname: localhost
+
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
