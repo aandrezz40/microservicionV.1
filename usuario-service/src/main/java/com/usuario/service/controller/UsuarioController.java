@@ -17,7 +17,7 @@ import com.usuario.service.models.Carro;
 import com.usuario.service.models.Moto;
 
 @RestController
-@RequestMapping("/api/usuario")
+@RequestMapping("/usuario")
 public class UsuarioController {
 
     @Autowired
