@@ -20,7 +20,15 @@ echo Waiting 15 seconds for Eureka Service to start...
 timeout /t 15 /nobreak > nul
 
 echo.
-echo 3. Starting Usuario Service (Port 8081)...
+echo 3. Starting Gateway Service (Port 9090)...
+start "Gateway Service" cmd /k "cd gateway-service && mvn spring-boot:run"
+
+echo.
+echo Waiting 10 seconds for Gateway Service to start...
+timeout /t 10 /nobreak > nul
+
+echo.
+echo 4. Starting Usuario Service (Port 8081)...
 start "Usuario Service" cmd /k "cd usuario-service && mvn spring-boot:run"
 
 echo.
