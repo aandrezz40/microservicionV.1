@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: 8084
 
 spring:
   application:
@@ -9,6 +9,6 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/aandrezz40/microservicionV.1/tree/config-server/config-data
+          uri: https://github.com/aandrezz40/microservicionV.1
           default-label: config-server     # o la rama real de tu repo
           search-paths: config-data
