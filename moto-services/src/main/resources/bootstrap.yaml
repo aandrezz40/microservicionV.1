@@ -5,3 +5,5 @@ spring:
     config:
       enabled: true
       uri: http://localhost:8084
+  config:
+    import: "optional:configserver:http://localhost:8084"

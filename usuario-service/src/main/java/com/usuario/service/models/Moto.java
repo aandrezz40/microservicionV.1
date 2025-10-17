@@ -1,13 +1,40 @@
 package com.usuario.service.models;
-import lombok.*;
 
-
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
 public class Moto {
     private String marca;
     private String modelo;
     private Long usuarioId;
+
+    public Moto() {
+    }
+
+    public Moto(String marca, String modelo, Long usuarioId) {
+        this.marca = marca;
+        this.modelo = modelo;
+        this.usuarioId = usuarioId;
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
+
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
+
+    public Long getUsuarioId() {
+        return usuarioId;
+    }
+
+    public void setUsuarioId(Long usuarioId) {
+        this.usuarioId = usuarioId;
+    }
 }
