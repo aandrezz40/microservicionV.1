@@ -1,0 +1,30 @@
+server:
+  port: 9090
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    instance:
+      hostname: localhost
+
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: usuario-service
+          uri: lb://usuario-service
+          predicates:
+            - Path=/usuario-service/** 
+        - id: carro-service
+          uri: lb://carro-service
+          predicates:
+            - Path=/carro-service/** 
+        - id: moto-service
+          uri: lb://moto-service
+          predicates:
+            - Path=/moto-service/**
